@@ -1,4 +1,4 @@
-// ConsoleApplication16.cpp: определяет точку входа для консольного приложения.
+// ConsoleApplication16.cpp: Г®ГЇДџГҐГ¤ГҐГ«ГїГҐГІ ГІГ®Г·ГЄГі ГўГµГ®Г¤Г  Г¤Г«Гї ГЄГ®Г­Г±Г®Г«ГјГ­Г®ГЈГ® ГЇДџГЁГ«Г®Г¦ГҐГ­ГЁГї.
 //
 
 #include "stdafx.h"
@@ -12,18 +12,18 @@ int main()
 	system("chcp 1251");
 	int line = 1;
 	char file1[20], file2[20], buff1[256], buff2[256];
-	cout << "Введите имя файлов для сравнения"<< endl;
+	cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї ГґГ Г©Г«Г®Гў Г¤Г«Гї Г±ДџГ ГўГ­ГҐГ­ГЁГї"<< endl;
 	cin >> file1 >> file2;
 	ifstream  fin1, fin2;
 	fin1.open(file1);
 	if (!fin1.is_open())
 	{
-		cout << "Файл не найден.";
+		cout << "Г”Г Г©Г« Г­ГҐ Г­Г Г©Г¤ГҐГ­.";
 	}
 	fin2.open(file2);
 	if (!fin2.is_open())
 	{
-		cout << "Файл не найден.";
+		cout << "Г”Г Г©Г« Г­ГҐ Г­Г Г©Г¤ГҐГ­.";
 	}
 
 	fstream fout;
@@ -36,8 +36,8 @@ int main()
 		if (strcmp(buff1, buff2))
 		{
 			
-			fout << file1 << "\tСтрока №" << line << "\t" << buff1 << endl;
-			fout << file2 << "\tСтрока №" << line << "\t" << buff2 << endl;
+			fout << file1 << " " << line << " " << buff1 << endl;
+			fout << file2 << " " << line << " " << buff2 << endl;
 		}
 		line++;
 	}
