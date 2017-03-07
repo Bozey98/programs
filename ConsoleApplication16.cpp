@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 
+
 using namespace std;
 
 int main()
@@ -41,11 +42,7 @@ int main()
 		}
 		line++;
 	}
-	
-
-
 	system("pause");
-
 
     return 0;
 }
