@@ -12,14 +12,14 @@ class Matrix {
 private:
 	int row, col, **mas;
 public:
-	Matrix();
+	Matrix(int length = 4);
 	Matrix(int, int);
-	Matrix(Matrix&);
+	Matrix(const Matrix&);
 	~Matrix();
-	void fill(char*);
-	void show();
-	Matrix operator+(Matrix);
-	Matrix operator*(Matrix);
+	void fill(const char*);
+	void show() const ;
+	Matrix operator+(const Matrix&) const;
+	Matrix operator*(const Matrix&) const;
 };
 
 
@@ -46,13 +46,16 @@ int main()
     return 0;
 }
 
-Matrix::Matrix() {
-	row = 4;
-	col = 4;
+Matrix::Matrix(int length) {
+	row = length;
+	col = length;
 
 	mas = new int*[row];
 	for (int i = 0; i < row; i++) {
 		mas[i] = new int[col];
+		for (int j = 0; j < col; j++) {
+			mas[i][j] = 0;
+		}
 	}
 }
 
@@ -74,7 +77,7 @@ Matrix::~Matrix() {
 	delete[] mas;
 }
 
-Matrix::Matrix(Matrix&a) {
+Matrix::Matrix(const Matrix&a) {
 	row = a.row;
 	col = a.col;
 
@@ -87,7 +90,7 @@ Matrix::Matrix(Matrix&a) {
 	}
 }
 
-void Matrix::fill(char*file) {
+void Matrix::fill( const char*file) {
 	ifstream fin1(file);
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < col; j++) {
@@ -96,7 +99,7 @@ void Matrix::fill(char*file) {
 	}
 }
 
-void Matrix::show() {
+void Matrix::show() const {
 	
 	for (int i = 0; i < row; i++) {
 		for (int j = 0; j < col; j++) {
@@ -107,7 +110,7 @@ void Matrix::show() {
 	cout << endl;
 }
 
-Matrix Matrix::operator+(Matrix a) {
+Matrix Matrix::operator+(const Matrix& a) const {
 
 	Matrix help(row, col);
 
@@ -120,7 +123,7 @@ Matrix Matrix::operator+(Matrix a) {
 	return help;
 }
 
-Matrix Matrix::operator*(Matrix a) {
+Matrix Matrix::operator*(const Matrix& a) const {
 
 	Matrix help(row, col);
 
